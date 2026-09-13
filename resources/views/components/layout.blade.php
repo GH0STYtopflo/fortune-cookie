@@ -13,6 +13,65 @@
 </head>
 
 <body class="min-h-screen flex flex-col" style="background: #0F0E17;">
+<header>
+    <div class="navbar shadow-sm" style="background-color: #1B192A">
+
+        <div class="navbar-start">
+            <div class="dropdown">
+                <div tabindex="0"
+                     role="button"
+                     class="btn btn-ghost lg:hidden">
+
+                    <svg aria-label="Menu"
+                         xmlns="http://www.w3.org/2000/svg"
+                         class="h-5 w-5"
+                         fill="none"
+                         viewBox="0 0 24 24"
+                         stroke="currentColor">
+
+                        <path stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M4 6h16M4 12h8m-8 6h16"/>
+                    </svg>
+                </div>
+            </div>
+
+            <button class="btn btn-ghost text-amber-50 text-2xl">
+                {{ $title }}
+            </button>
+        </div>
+
+        <div class="navbar-end space-x-2">
+            @guest()
+                <form>
+                    <button class="btn btn-active btn-neutral rounded-2xl w-35">
+                        Signup
+                    </button>
+                </form>
+
+                <form action="/login" method="GET">
+                    <button class="btn btn-active btn-neutral rounded-2xl w-30"
+                            style="background-color: #38BDF8">
+                        Login
+                    </button>
+                </form>
+            @endguest
+
+            @auth
+                <form action="/logout" method="POST">
+                    <button class="btn btn-active btn-neutral rounded-2xl w-30"
+                            style="background-color: darkred">
+                        Logout
+                    </button>
+                </form>
+
+            @endauth
+
+        </div>
+
+    </div>
+</header>
 
 {{$slot}}
 
