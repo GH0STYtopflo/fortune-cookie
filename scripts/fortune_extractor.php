@@ -18,6 +18,7 @@ function extractAndSeed(Factory $factory): void
                 $factory->create(['body' => $fortune]);
             }
         }
+
     }
 }
 

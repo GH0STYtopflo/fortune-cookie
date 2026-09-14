@@ -44,7 +44,7 @@
 
         <div class="navbar-end space-x-2">
             @guest()
-                <form>
+                <form action="/signup" method="GET">
                     <button class="btn btn-active btn-neutral rounded-2xl w-35">
                         Signup
                     </button>
