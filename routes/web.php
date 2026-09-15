@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserFortuneController;
+use App\Models\Fortune;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
@@ -24,4 +25,6 @@ Route::post('/login', [UserController::class, 'login']);
 Route::post('/logout', [UserController::class, 'logout']);
 
 Route::get('/get_cookie', [UserFortuneController::class, 'addFortune']);
-Route::get('/user_cookies', [UserFortuneController::class, 'index']);
+Route::get('/my_cookies', [UserFortuneController::class, 'index']);
+
+Route::delete('/my_cookies/{fortune}', [UserFortuneController::class, 'destroy']);

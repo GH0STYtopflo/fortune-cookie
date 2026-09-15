@@ -37,10 +37,24 @@
                 </div>
             </div>
 
-            <button class="btn btn-ghost text-amber-50 text-2xl">
-                {{ $title }}
-            </button>
+            <form action="/" method="GET">
+                <button class="btn btn-ghost text-amber-50 text-2xl btn-hover hover:bg-transparent hover:border-0">
+                    {{ $title }}
+                </button>
+            </form>
+
         </div>
+
+        @auth
+            <ul class="menu menu-horizontal bg-base-200 navbar-center space-x-2" style="background-color: #1B192A">
+                <li style="background: #2c273a; color: white" class="rounded">
+                    <a href="/get_cookie">Get A New Cookie</a>
+                </li>
+                <li style="background: #2c273a; color: white" class="rounded">
+                    <a href="/my_cookies">View Your Cookies</a>
+                </li>
+            </ul>
+        @endauth
 
         <div class="navbar-end space-x-2">
             @guest()
