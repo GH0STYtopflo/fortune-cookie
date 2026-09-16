@@ -6,8 +6,12 @@
             <input name="body" type="text" class="bg-white w-100 h-10 p-2 rounded" placeholder="Cookie Text">
         </form>
 
-        @foreach($cookies as $cookie)
+        @forelse($cookies as $cookie)
             <x-cookie_card :date="$cookie->created_at" :content="$cookie->body" :id="$cookie->id"/>
-        @endforeach
+        @empty
+            <div>
+                <label style="color: white">Opps... You don't have any cookies yet.</label>
+            </div>
+        @endforelse
     </div>
 </x-layout>
