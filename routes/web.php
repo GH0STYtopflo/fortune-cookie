@@ -2,12 +2,8 @@
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserFortuneController;
-use App\Models\Fortune;
-use App\Models\User;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Http\Request;
 
-// index page
 Route::get('/', function () {
     return view('home',
         [
@@ -31,3 +27,5 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::delete('/my_cookies/{fortune}', [UserFortuneController::class, 'destroy']);
 });
+
+Route::get('test', fn () => session()->all());

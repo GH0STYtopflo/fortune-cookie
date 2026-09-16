@@ -22,6 +22,8 @@ class UserController extends Controller
             'password' => ['required', 'string', 'min:6'],
         ]);
 
+        session(['username' => $request->username, 'email' => $request->email]);
+
         $user = User::create([
             'username' => $request->username,
             'email' => $request->email,
@@ -29,6 +31,8 @@ class UserController extends Controller
         ]);
 
         Auth::login($user);
+
+        session()->forget(['username', 'email']);
 
         return redirect('/');
     }
